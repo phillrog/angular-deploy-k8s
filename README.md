@@ -17,4 +17,8 @@ Criar uma aplicação angular e efetuar seu deploy no cluster local k8s gerencia
 
 ```docker-compose -f .\docker\docker-compose.yaml up --build -d```
 
-Imagem
+## Containers
+![image](https://user-images.githubusercontent.com/8622005/188758135-f32b5685-a58d-47b4-8ea8-bb885ce30940.png)
+
+## Portal
+![image](https://user-images.githubusercontent.com/8622005/188758160-e3df3c7f-f02b-4bef-b9b5-e56924e6d46d.png)
