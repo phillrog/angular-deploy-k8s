@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+    portal: 
+        container_name: app-portal
+        hostname: app-portal
+        build: 
+            dockerfile: ../portal/Dockerfile
+            context: ./portal
+        networks:
+            - rede
+
+networks:
+    rede:
+        driver: bridge
