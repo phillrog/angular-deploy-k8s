@@ -49,3 +49,78 @@ Ao finalizar aparecerá a seguinte imagem:
 ![image](https://user-images.githubusercontent.com/8622005/188764838-51f0d8b3-ede9-466d-a924-49814dbc6cf9.png)
 
 
+# 4 - Criar os objetos
+
+## Namespace
+
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: portals
+```
+
+## Deployment
+
+```
+apiVersion: v1
+kind: Deployment
+metadata:
+  labels:
+    app: portal
+  name: portal-v1
+  namespace: portals
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      containers:
+        - name: portal
+          image: registry.hub.docker.com/phillrog/portal:v1
+          ports:
+            - containerPort: 80
+              name: portal
+          
+```
+
+## Service
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: portal
+  name: portal-v1
+  namespace: portals
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      name: portal-service
+      targetPort: 80
+      nodePort: 30000
+  selector:
+    app: portal
+
+```
+
+# 5 - Executar
+
+Entrar no diretório k8s e executar:
+
+``` kubectl create -f namespace.yaml ```
+
+``` kubectl create -f deployment.yaml ```
+
+``` kubectl create -f service.yaml ```
+
+# Resultado
+
+

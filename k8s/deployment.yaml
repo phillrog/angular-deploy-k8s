@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: portal
+    name: portal-dp
+  name: portal-dp
+  namespace: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      containers:
+        - name: portal
+          image: registry.hub.docker.com/phillrog/portal:v1
+          ports:
+            - containerPort: 80
+              name: portal
+          

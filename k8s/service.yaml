@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: portal
+  name: portal-v1
+  namespace: front
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      name: portal-service
+      targetPort: 80
+      nodePort: 30000
+  selector:
+    app: portal
