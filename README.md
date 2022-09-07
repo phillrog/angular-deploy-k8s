@@ -111,7 +111,7 @@ spec:
 
 ```
 
-# 5 - Executar
+# 5 - Executação dos yaml
 
 Entrar no diretório k8s e executar:
 
@@ -121,6 +121,56 @@ Entrar no diretório k8s e executar:
 
 ``` kubectl create -f service.yaml ```
 
+Objetos criados do namespace "front"
+
+![image](https://user-images.githubusercontent.com/8622005/188767541-36e005d1-b740-4743-bf93-4fd8f498561d.png)
+
+Lista
+
+![image](https://user-images.githubusercontent.com/8622005/188767909-d711b839-5ead-44ac-b0eb-0764092b2dba.png)
+
+Portal
+
+![image](https://user-images.githubusercontent.com/8622005/188768017-9b1fc0b4-7faf-43a8-9f98-66bb8201b5e5.png)
+
+
+# 6 - Ingress
+
+Com o ingress é possível definir um host apontando para o serviço criado na porta 80 e não mais na 30000.
+
+## Ingress
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portal-ingress
+  namespace: front
+spec:
+  rules:
+  - host: meu-portal.localhost.com
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: portal-v1
+              port:
+                number: 5000
+                
+```
+
+Execute o seguinte comando para criar o ingress:
+
+``` kubectl create -f ingress.yaml   ```
+
+Vá no hosts e defina um DNS personalizado.
+
+![image](https://user-images.githubusercontent.com/8622005/188770956-57fad5df-b854-4802-82d4-2ff6f52561ab.png)
+
 # Resultado
+
+![image](https://user-images.githubusercontent.com/8622005/188771027-dd254b4a-e6e9-4ae3-871e-58f5faff2c34.png)
 
 
