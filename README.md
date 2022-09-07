@@ -17,6 +17,20 @@ Criar uma aplicação angular e efetuar seu deploy no cluster local k8s gerencia
 
 ```docker-compose -f .\docker\docker-compose.yaml up --build -d```
 
+# 2 - Publicar imagem no repositório
+
+Obs: Pelo script automatizador.
+
+Execute ``` export DOCKER_USERNAME="NOME_USUARIO_DOCKER"``` para declarar a variável no shell.
+Cheque o valor executando ```echo ${DOCKER_USERNAME}```
+
+imagem
+
+Em seguida execute o script passando o nome da imagem e a tag:
+
+```.\script\publicar.sh portal:v1```
+
+
 ## Containers
 ![image](https://user-images.githubusercontent.com/8622005/188758135-f32b5685-a58d-47b4-8ea8-bb885ce30940.png)
 
