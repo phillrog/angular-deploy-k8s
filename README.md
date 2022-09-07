@@ -1,7 +1,19 @@
 # angular-deploy-k8s
 
 # Objectivo
-Criar uma aplicação angular e efetuar seu deploy no cluster local k8s gerenciado pelo Rancher Desktop.
+Criar uma aplicação angular e efetuar seu deploy no cluster local k8s gerenciado pelo Rancher Desktop. 
+
+Será criado:
+
+### Docker
+- Dockerfile
+- docker-compose
+
+### K8s
+- Deployment
+- Service
+- Namespace
+- Ingress
 
 # 1 - Gerar imagem
 
@@ -171,6 +183,11 @@ Vá no hosts e defina um DNS personalizado.
 
 # Resultado
 
+Portal
 ![image](https://user-images.githubusercontent.com/8622005/188771027-dd254b4a-e6e9-4ae3-871e-58f5faff2c34.png)
+
+Ingress no Rancher Desktop
+![image](https://user-images.githubusercontent.com/8622005/188771185-0f34531f-60be-4b04-93d2-6f93ebf493a9.png)
+
 
 
